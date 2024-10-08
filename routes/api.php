@@ -21,7 +21,7 @@ Route::group([
 
         // restituisce le offerte dello shop ordinate in modo crescente per prezzo
         Route::get('{shopID}', function (string $shopID) {
-            return OfferResource::collection(Offer::where('shop_id', $shopID)->orderBy('price', 'asc')->paginate());
+            return OfferResource::collection(Offer::where('ext_shop_id', $shopID)->orderBy('price', 'asc')->paginate());
         })->name('shop');
 
         // ritorna le offerte presenti nel paese selezionato e con esse anche gli shop in cui trovare il prodotto
@@ -31,5 +31,4 @@ Route::group([
     });
 });
 
-// Placed outside the api group since it does not need to have middleware 'auth:sanctum'
-Route::post('/auth/token', [ApiController::class, 'authToken'])->name('token');
+Route::post('v1/auth/token', [ApiController::class, 'authToken'])->name('token');

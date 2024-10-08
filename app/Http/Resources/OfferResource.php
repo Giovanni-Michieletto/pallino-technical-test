@@ -15,6 +15,7 @@ class OfferResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'shop_id' => $this->ext_shop_id,
             'product' => $this->product,
             'price' => $this->price,
             'currency' => $this->currency,

@@ -26,6 +26,7 @@ class Shop extends Model
         'name',
         'address',
         'country',
+        'ext_shop_id'
     ];
 
     /**
@@ -45,6 +46,6 @@ class Shop extends Model
      */
     public function offers(): HasMany
     {
-        return $this->hasMany(Offer::class, 'shop_id');
+        return $this->hasMany(Offer::class, 'shop_id', 'ext_shop_id');
     }
 }

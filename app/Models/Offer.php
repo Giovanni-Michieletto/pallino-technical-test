@@ -23,11 +23,12 @@ class Offer extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'shop_id',
         'product',
         'price',
         'currency',
         'description',
+        'ext_offer_id',
+        'ext_shop_id'
     ];
 
     /**
@@ -46,6 +47,6 @@ class Offer extends Model
      */
     public function shop(): belongsTo
     {
-        return $this->belongsTo(Shop::class, 'shop_id');
+        return $this->belongsTo(Shop::class, 'ext_shop_id', 'ext_shop_id');
     }
 }

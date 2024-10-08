@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\ShopResource;
+use App\Http\Resources\OfferResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class OfferCountryResource extends JsonResource
@@ -16,10 +17,7 @@ class OfferCountryResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'product' => $this->product,
-            'price' => $this->price,
-            'currency' => $this->currency,
-            'description' => $this->description,
+            new OfferResource($this),
             'shops' => ShopResource::collection($this->shops)
         ];
     }

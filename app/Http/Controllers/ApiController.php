@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Offer;
+use Illuminate\Support\Facades\Log;
 use App\Models\Shop;
 use App\Models\User;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
-abstract class ApiController extends Controller
+class ApiController extends Controller
 {
     use ValidatesRequests;
 
@@ -24,6 +25,7 @@ abstract class ApiController extends Controller
      */
     public function authToken(Request $request)
     {
+        Log::debug('authToken');
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
