@@ -17,6 +17,8 @@ class Offer extends Model
 
     protected $primaryKey = 'id';
 
+    const JSON_DATA_SOURCE = 'https://test.pallinolabs.it/api/v1/offers.json';
+
     /**
      * The attributes that are mass assignable.
      *

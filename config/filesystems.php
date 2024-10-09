@@ -57,6 +57,13 @@ return [
             'throw' => false,
         ],
 
+        'spool' => [
+            'driver' => 'local',
+            'root' => storage_path('app/spool'),
+            'url' => env('APP_URL') . '/spool',
+            'visibility' => 'public',
+            'throw' => true,
+        ],
     ],
 
     /*

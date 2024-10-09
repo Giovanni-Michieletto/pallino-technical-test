@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Log;
-use App\Models\Shop;
 use App\Models\User;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\OfferResource;
+use App\Http\Resources\OfferCountryResource;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
@@ -41,5 +42,14 @@ class ApiController extends Controller
         }
 
         return     "Bearer " . $user->createToken("api")->plainTextToken;
+    }
+
+    public function offers($key)
+    {
+        if (is_numeric($key)) {
+            return OfferResource::collection(Offer::where('ext_shop_id', $key)->orderBy('price', 'asc')->paginate());
+        } else {
+            return OfferCountryResource::collection(Offer::whereRelation('shop', 'country', $key)->with('shop')->paginate());
+        }
     }
 }

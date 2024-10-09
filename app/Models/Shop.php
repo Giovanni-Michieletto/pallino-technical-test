@@ -17,6 +17,9 @@ class Shop extends Model
 
     protected $primaryKey = 'id';
 
+    protected $json_data_source = 'https://test.pallinolabs.it/api/v1/shops.json';
+    protected $csv_data_source = 'https://test.pallinolabs.it/shops.csv';
+
     /**
      * The attributes that are mass assignable.
      *

@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schedule;
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote')->hourly();
+Schedule::command('app:api --cmd=sync_shops')->everyMinute()->withoutOverlapping();
+Schedule::command('app:api --cmd=sync_offers')->everyMinute()->withoutOverlapping();
+
+Schedule::command('queue:work ' . config('queue.default') . ' --max-jobs=15 --timeout=180 --max-time=230 --stop-when-empty')->everyMinute()->withoutOverlapping();
