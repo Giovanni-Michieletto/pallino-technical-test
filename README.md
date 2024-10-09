@@ -43,4 +43,8 @@ Tale meccanismo permette infatti di poter gestire in modo separato il database l
 
 ## API
 
-Sono presenti tre set principali di api chiamabili esternamente
+È possibile visualizzare la documentazione api secondo tre modalità :
+
+- [UI viewer for your documentation](http://127.0.0.1:8000/docs/api)
+- [Open API document in JSON format describing your API.](http://127.0.0.1:8000/docs/api.json)
+- [Json file](./api_documentation.json)
