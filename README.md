@@ -50,3 +50,19 @@ Tale meccanismo permette infatti di poter gestire in modo separato il database l
 - [Json file](./api_documentation.json)
 
 Per i primi due link è necessario prima lanciare un server locale
+
+## Avvio del progetto
+
+1. Scaricare il repository
+2. Lanciare il comando `composer install`
+3. Rinominare `.env.example` in `.env`
+4. Lanciare il comando `php artisan migrate`
+5. Lanciare il comando `php artisan db:seed --class=Database\Seeders\DatabaseSeeder`
+6. Scaricare i dati secondo una delle seguenti modalità
+    1. Lanciare i comandi `php artisan app:api --cmd=sync_shops`, `php artisan app:api --cmd=sync_offers`, `php artisan queue:works --stop-when-empty`
+    2. Lanciare il comando `php artisan schedule:work`
+    3. Lanciare il comando `php artisan queue:works` e il comando `php artisan serve`, poi chiamare le api di autenticazione e sincronizzazione
+7. Lanciare il comando `php artisan serve` se non fatto in precedenza
+8. Ora è possibile autenticarsi, se non fatto in precedenza, ed effettuare le chiamate api
+
+
