@@ -95,6 +95,6 @@ class ApiController extends Controller
             SyncShopsJob::dispatch();
             return response('Shops synchronization request sent');
         }
-        abort(404, "Not allowed");
+        return response('Invalid target', 404);
     }
 }
