@@ -30,13 +30,13 @@ Si lascia al candidato la gestione di eventuali decisioni da prendere per i punt
 
 È stato deciso di usare SQLite dato che permette di creare e gestire un piccolo database in maniera molto veloce.
 
-Per questo progetto era inoltre conveniente dato che permette di salavare il database in un unico file senza avere la necessità di appoggiarsi ad una base di dati esterna.
+Per questo progetto era inoltre conveniente dato che permette di salvare il database in un unico file senza avere la necessità di appoggiarsi ad una base di dati esterna.
 
 ### Gestione dei dati importati
 
 Durante l'importazione dei dati si è deciso di non far coinciere gli id identificativi delle offer e dei shop con gli id del database locale ma di salvare tali id in campi appositi come ext_shop_id e ext_offer_id.
 
-Tale meccanismo permette infatti di poter gestire in modo separato il database locale e matenendo comunque un rifirimento all'id originale della fonte.
+Tale meccanismo permette infatti di poter gestire in modo separato il database locale matenendo comunque un riferimento all'id originale della fonte.
 
 ---
 ---
@@ -48,3 +48,5 @@ Tale meccanismo permette infatti di poter gestire in modo separato il database l
 - [UI viewer for your documentation](http://127.0.0.1:8000/docs/api)
 - [Open API document in JSON format describing your API.](http://127.0.0.1:8000/docs/api.json)
 - [Json file](./api_documentation.json)
+
+Per i primi due link è necessario prima lanciare un server locale
