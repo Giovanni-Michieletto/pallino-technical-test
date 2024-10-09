@@ -10,9 +10,7 @@ Route::group([
     'middleware' => ['auth:sanctum'],
 ], function () {
 
-    Route::get('auth/me', function (Request $request) {
-        return response()->json($request->user());
-    });
+    Route::get('auth/me', [ApiController::class, 'user'])->name('user');
 
     Route::group(['prefix' => 'offers', 'as' => 'offers.'], function () {
         Route::get('{key}', [ApiController::class, 'offers'])->name('offers');

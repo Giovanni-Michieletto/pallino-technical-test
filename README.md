@@ -1,4 +1,6 @@
-# Test tecnico
+# Manuale d'uso
+
+## Requisiti
 
 ## Descrizione
 
@@ -18,3 +20,27 @@ Sviluppare un sistema in PHP (sulla piattaforma che si preferisce) che, salvi le
 Si lascia al candidato la gestione di eventuali decisioni da prendere per i punti non specificati (test, ottimizzazioni varie, ecc ) ed una breve documentazione per avviare il progetto e rendere operative le API.
 
 **Scadenza**: venerdì 11/10/2024
+
+---
+---
+
+## Considerazioni
+
+### Base di dati
+
+È stato deciso di usare SQLite dato che permette di creare e gestire un piccolo database in maniera molto veloce.
+
+Per questo progetto era inoltre conveniente dato che permette di salavare il database in un unico file senza avere la necessità di appoggiarsi ad una base di dati esterna.
+
+### Gestione dei dati importati
+
+Durante l'importazione dei dati si è deciso di non far coinciere gli id identificativi delle offer e dei shop con gli id del database locale ma di salvare tali id in campi appositi come ext_shop_id e ext_offer_id.
+
+Tale meccanismo permette infatti di poter gestire in modo separato il database locale e matenendo comunque un rifirimento all'id originale della fonte.
+
+---
+---
+
+## API
+
+Sono presenti tre set principali di api chiamabili esternamente
