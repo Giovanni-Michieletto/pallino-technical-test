@@ -15,8 +15,10 @@ Route::group([
     });
 
     Route::group(['prefix' => 'offers', 'as' => 'offers.'], function () {
-        Route::get('{key}', [ApiController::class, 'offers']);
+        Route::get('{key}', [ApiController::class, 'offers'])->name('offers');
     });
+
+    Route::get('sync/{target}', [ApiController::class, 'sync'])->name('sync');
 });
 
 Route::post('v1/auth/token', [ApiController::class, 'authToken'])->name('token');

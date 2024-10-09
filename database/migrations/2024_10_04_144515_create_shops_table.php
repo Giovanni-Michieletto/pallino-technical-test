@@ -12,7 +12,7 @@ return new class () extends Migration {
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
-            $table->string('ext_shop_id')->nullable();
+            $table->bigInteger('ext_shop_id')->nullable();
             $table->string('name')->nullable();
             $table->string('address')->nullable();
             $table->string('country')->nullable();

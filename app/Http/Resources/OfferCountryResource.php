@@ -17,8 +17,11 @@ class OfferCountryResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            new OfferResource($this),
-            'shops' => ShopResource::collection($this->shops)
+            'product' => $this->product,
+            'price' => $this->price,
+            'currency' => $this->currency,
+            'description' => $this->description,
+            'shop' => new ShopResource($this->shop)
         ];
     }
 }

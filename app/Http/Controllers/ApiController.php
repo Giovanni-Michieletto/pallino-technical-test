@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Offer;
+use App\Jobs\SyncShopsJob;
+use App\Jobs\SyncOffersJob;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
@@ -51,5 +53,16 @@ class ApiController extends Controller
         } else {
             return OfferCountryResource::collection(Offer::whereRelation('shop', 'country', $key)->with('shop')->paginate());
         }
+    }
+
+    public function sync($target) {
+        if ($target == 'offers') {
+            SyncOffersJob::dispatch();
+            return response('Offers synchronization request sent');
+        } elseif ($target == 'shops') {
+            SyncShopsJob::dispatch();
+            return response('Shops synchronization request sent');
+        }
+        abort(404, "Not allowed");
     }
 }

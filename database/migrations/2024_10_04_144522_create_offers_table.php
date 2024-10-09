@@ -12,8 +12,8 @@ return new class () extends Migration {
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->string('ext_offer_id')->nullable();
-            $table->string('ext_shop_id')->nullable();
+            $table->bigInteger('ext_offer_id')->nullable();
+            $table->bigInteger('ext_shop_id')->nullable();
             $table->string('product')->nullable();
             $table->decimal('price')->nullable();
             $table->string('currency')->nullable();

@@ -15,6 +15,7 @@ class ShopResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->ext_shop_id,
             'name' => $this->name,
             'address' => $this->address,
             'country' => $this->country
