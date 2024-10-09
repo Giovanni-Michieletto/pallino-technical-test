@@ -51,6 +51,9 @@ Tale meccanismo permette infatti di poter gestire in modo separato il database l
 
 Per i primi due link è necessario prima lanciare un server locale
 
+---
+---
+
 ## Avvio del progetto
 
 1. Scaricare il repository
