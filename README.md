@@ -48,3 +48,5 @@ Tale meccanismo permette infatti di poter gestire in modo separato il database l
 - [UI viewer for your documentation](http://127.0.0.1:8000/docs/api)
 - [Open API document in JSON format describing your API.](http://127.0.0.1:8000/docs/api.json)
 - [Json file](./api_documentation.json)
+
+Per i primi due link è necessario prima lanciare un server locale
